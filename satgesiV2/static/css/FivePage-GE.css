@@ -13,7 +13,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: 800px;
-    height: 90vh;
+    height: 100vh;
     background:white;
     border-radius: 10px; /*propriete des bordures*/
     box-shadow: 10px 10px 15px rgb(26,73,139); /*ici kanet noir */
