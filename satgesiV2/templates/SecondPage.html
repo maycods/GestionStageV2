@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>ESI</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/SecondPage.css' %}">
+    <link rel="icon" href="/static/png/icon2.png" >
+    <link rel="stylesheet" href="/static/css/SecondPage.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="/static/png/logo2.png" alt="logo du site " width= "100"  ></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">contact</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Détails
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link disabled">Aide</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Recherche">
+              <button class="btn btn-outline-success,nohover"  type="submit" style="color:rgb(14, 58, 145) ">Recherche</button>
+              <button type="button" class="btn btn-outline-primary">Recherche</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+  <center>
+ <!--<div class=logo> <img src="/static/png/logo.gif" alt="logo du site " width= "350" > <br> <br> </div> -->
+</center>
+ <div class="center">
+        <h1>Gestion Des Stages </h1>
+        <form method="post">
+            <div class="space">
+                
+            </div>
+            <div class="content">
+              <button type="button">Stages&Typestage</button>
+              <button type="button">GroupeStagiares&Stagiare</button>
+              <button type="button">Organismes d'acceuil</button>
+              <button type="button">Gestion des Encadreurs</button>
+              <button type="button">Gestion des Promoteurs</button>
+              <button type="button">Statistiques & Rapport</button>
+            </div> 
+            <div class="space">
+                
+            </div>
+          
+        </form>
+  
+    </div>
+
+
+</body>
+</html>

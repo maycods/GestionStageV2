@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ESI</title>
+    <link rel="icon" href="/static/png/icon2.png" > 
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/FirstPage.css' %}">
+</head>
+<body>
+    <center>
+        <div class=logo>  <img src="/static/png/logo.gif" alt="logo du site " width= "350" height="200" >  </div> 
+    </center>
+   <!---- <div class=logo>  <img src="/static/png/logo.png " alt="logo du site " width= "150" >   
+    </div> -->
+      
+    <div class="center">
+        <h1>Connexion </h1>
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" required>
+                <span></span>
+                <label>Nom d'utilisateur</label>
+                
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+                <span></span>
+                <label>Mot de passe </label>
+            
+            </div>
+            <div class="pass">Mot de passe oublié ?</div>
+            <div class="login">
+                <a href="#nav"><input type ="submit" value="Se connecter" ></a>    
+            </div>
+            <div class="space">
+                
+            </div>
+          
+            
+            
+        </form>
+  
+    </div>
+
+
+</body>
+</html>

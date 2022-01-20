@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #ecf0f1;
+    height: 100vh;
+    overflow: hidden; /*le texte ne depasse pas la limite du bloc si c'est le cas on le coupe*/
+  }
+
+  .center{
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 80vh;
+    background:white;
+    border-radius: 10px; /*propriete des bordures*/
+    box-shadow: 10px 10px 15px rgb(26,73,139); /*ici kanet noir */
+  }
+  .center h1{
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid silver; /*bordure du coté bas*/
+  }
+  .center form{
+    padding: 0px 150px;
+    box-sizing: border-box;
+  }

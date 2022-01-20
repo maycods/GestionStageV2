@@ -1,0 +1,105 @@
+
+
+body{
+  margin: 0; 
+  padding: 0; 
+  background: #ecf0f1;
+  height: 100vh;
+  overflow: hidden; /*le texte ne depasse pas la limite du bloc si c'est le cas on le coupe*/
+}
+/*LOGIN*/
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: white;
+  border-radius: 10px; /*propriete des bordures*/ 
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+.center h1{
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid silver; /*bordure du coté bas*/
+}
+.center form{
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+form .txt_field{
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+}
+.txt_field input{
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none; /*pas de propriètés*/
+}
+
+.txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none; /*recevoir des cliques*/
+    transition: .5s; /*changer la valeur*/
+  }
+  .txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgb(26,73,139);
+    transition: .5s;
+  }
+  /* pour que user name and âssword change de posistion*/
+  .txt_field input:focus ~ label,
+  .txt_field input:valid ~ label{
+    top: -5px;
+    color:  rgb(26,73,139);
+  }
+  .txt_field input:focus ~ span::before,
+  .txt_field input:valid ~ span::before{
+    width: 100%;
+  }
+  .pass{
+    margin: -5px 0 20px 5px;
+    color: #a6a6a6;
+    cursor: pointer;
+  }
+  .pass:hover{ /* quand il appuie sur forget (line+couleur)*/
+    text-decoration: underline;
+    color:  rgb(26,73,139);
+  }
+  input[type="submit"]{  /*balise contient un attribut et une valeur */
+    width: 100%;
+    height: 40px;
+    border: 1px solid;
+    background: rgb(26,73,139);
+    border-radius: 25px;
+    font-size: 15px;
+    color:#e9f4fb;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+  }
+  input[type="submit"]:hover{
+    border-color: rgb(26,73,139);
+    transition: .5s;
+  
+  }
+ .space
+ {
+     margin: 30px 0;
+ }
+ 
