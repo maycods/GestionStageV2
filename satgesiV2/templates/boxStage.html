@@ -6,11 +6,11 @@
           <meta charset="UTF-8">
           <title>ESI</title>
           <link rel="stylesheet" href="/static/css/boxStage.css">
-          <link rel="icon" href="/static/png/icon2.png" >
+          <link rel="icon" href="/static/png/icon3.png" >
       </head>
 </head>
 <body>
-    <center><div class=logo>  <img src="logo.gif" alt="logo du site " width= "350" > <br> <br> </div></center>
+    <center><div class=logo>  <img src="/static/png/logo.gif" alt="logo du site " width= "350" > <br> <br> </div></center>
 
     <div class="center">
         <h1>Stages & Type de Stages </h1>
@@ -19,8 +19,12 @@
 
             </div>
             <div class="content">
+                <a href="{% url 'GS'%}">
                 <button type="button">Gestion des Stages</button>
+            </a>  
+            <a href="{% url 'GT'%}">
                 <button type="button">Types de Stages</button>
+            </a>  
             </div>
             <div class="space">
 

@@ -6,13 +6,13 @@
     <title>ESI</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/SecondPage.css' %}">
-    <link rel="icon" href="/static/png/icon2.png" >
+    <link rel="icon" href="/static/png/icon3.png" >
     <link rel="stylesheet" href="/static/css/SecondPage.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="/static/png/logo2.png" alt="logo du site " width= "100"  ></a>
+          <a class="navbar-brand" href="#"><img src="/static/png/icon3.png" alt="logo du site " width= "50"  ></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -48,7 +48,7 @@
         </div>
       </nav>
   <center>
- <!--<div class=logo> <img src="/static/png/logo.gif" alt="logo du site " width= "350" > <br> <br> </div> -->
+
 </center>
  <div class="center">
         <h1>Gestion Des Stages </h1>
@@ -57,12 +57,24 @@
                 
             </div>
             <div class="content">
+              <a href="{% url 'BS'%}">
               <button type="button">Stages&Typestage</button>
+              </a>
+              <a href="{% url 'BS2'%}">
               <button type="button">GroupeStagiares&Stagiare</button>
+              </a>
+              <a href="{% url 'GO'%}">
               <button type="button">Organismes d'acceuil</button>
+              </a>
+              <a href="{% url 'GE'%}">
               <button type="button">Gestion des Encadreurs</button>
+              </a>
+              <a href="{% url 'GP'%}">
               <button type="button">Gestion des Promoteurs</button>
+              </a>
+              
               <button type="button">Statistiques & Rapport</button>
+             
             </div> 
             <div class="space">
                 
