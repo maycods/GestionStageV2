@@ -6,7 +6,7 @@
         <title>ESI</title>
 
         {% load static %}
-        <link rel="stylesheet" href="{% static 'css/FivePage-GE.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Nine.css' %}">
         <link rel="icon" href="/static/png/icon3.png" >
     </head>
 <body>
@@ -20,9 +20,13 @@
         </div>
         <form method="POST">
            {% csrf_token %}
-        {{formPromoteur}}
+           <form>
+        <div class="form-group row">
+        {{formTypeS}}
+    </div>
            <br><br>
           <button type="submit" class="btn btn-primary">Envoyer</button>
+          
       </form>
         {% comment %} <div class="centrText"> {% endcomment %}
          

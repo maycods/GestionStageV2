@@ -20,7 +20,7 @@ from satgesiV2.views import pagetwo
 from satgesiV2.views import pagethree
 from satgesiV2.views import pagefour
 from satgesiV2.views import pagefive
-from satgesiV2.views import pageacc 
+from satgesiV2.views import pageacc ,pageseven,pageeight,pagenine
 from satgesiV2.views import pagesix,boxstage, Gencadreur, boxstage2,Gorgan,GGstag,Gprom,Gtype,Gstage,Gstag
 
 urlpatterns = [
@@ -32,6 +32,9 @@ urlpatterns = [
       path('accept/',pageacc,name="accept"),
       path('Encadreur/',pagesix,name="createE"),
        path('Promoteur/',pagefive,name="createP"),
+       path('Organisme/',pageseven,name="createO"),
+       path('GPStagieres/',pageeight,name="createG"),
+       path('TypeStage/',pagenine,name="CreateS"),
 
         path('GS/',Gstage,name="GS"),
         path('BS/',boxstage,name="BS"),
@@ -42,5 +45,6 @@ urlpatterns = [
         path('GT/' ,Gtype,name="GT"),
         path('GGSR/',GGstag,name="GGSR"),
         path('GSR/',Gstag,name="GSR"),
+
       ]
 

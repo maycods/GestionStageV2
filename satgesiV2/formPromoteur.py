@@ -13,7 +13,8 @@ class PromoteurForm(ModelForm):
             'telephone': forms.NumberInput(attrs={'class':'form-control','placeholder':'Telephone'}),
             'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'email@example.com'}),
             'FonctionOccupée':forms.TextInput(attrs={'class':'form-control','placeholder':'Fonction'}),
-            'domaine d intérêt':forms.TextInput(attrs={'class':'form-control','placeholder':'Domaine'}),
+            'domainIntérêt':forms.TextInput(attrs={'class':'form-control','placeholder':'Domaine'}),
             'idfOrganisme' : forms.TextInput(attrs={'class':'form-control'}),
             'idfGroupe' :forms.TextInput(attrs={'class':'form-control'}),
           }
+         

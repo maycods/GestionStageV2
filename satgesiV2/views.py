@@ -3,6 +3,9 @@ from .models import Encadreur, Stagiere
 from satgesiV2.formEtud import  StagieresForm
 from  satgesiV2.formEncadreur import EncadreurForm
 from  satgesiV2.formPromoteur import PromoteurForm
+from satgesiV2.formOrganisme import OrganismeAcceuilForm
+from satgesiV2.formGroupeStagiaire import GroupeStagiaireFrom
+from  satgesiV2.formTypeS import TypeForm
 # Create your views here.
 def pageone (request):
  return render(request,'Firstpage.html')
@@ -45,6 +48,40 @@ def pagesix (request):
     else:
         formul = EncadreurForm()
         return render(request,'SixPage.html',{"formEncadreur":formul})
+
+
+def pageseven(request):
+    if request.method == "POST":
+       form =  OrganismeAcceuilForm(data=request.POST)
+       if form.is_valid():
+           form.save()
+           return redirect("accept")
+    else:
+        formula = OrganismeAcceuilForm()
+        return render(request,'SevenPage.html',{"formOrganisme":formula})
+
+
+def pageeight(request):
+    if request.method == "POST":
+       form =  OrganismeAcceuilForm(data=request.POST)
+       if form.is_valid():
+           form.save()
+           return redirect("accept")
+    else:
+        formulair = GroupeStagiaireFrom()
+        return render(request,'eightPage.html',{"formGroupeStagiaire":formulair})
+
+def pagenine(request):
+    if request.method == "POST":
+       form = TypeForm(data=request.POST)
+       if form.is_valid():
+           form.save()
+           return redirect("accept")
+    else:
+        formlaire = TypeForm()
+        return render(request,'NinePage.html',{"formTypeS":formlaire})
+
+
 
 def boxstage (request):
  return render(request,'boxStage.html')

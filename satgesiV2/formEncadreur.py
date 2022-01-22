@@ -5,7 +5,7 @@ from django import forms
 class EncadreurForm(ModelForm):
     class Meta:
         model = Encadreur
-        fields = ('Nomncadreur','PrenomEncadreur','Telephone','Mail','grade','domaineInteret')
+        fields = "__all__"
 
         widgets={
             'Nomncadreur':forms.TextInput(attrs={'class':'form-control','placeholder':'Nomncadreur'}),
@@ -15,3 +15,11 @@ class EncadreurForm(ModelForm):
             'grade':forms.TextInput(attrs={'class':'form-control','placeholder':'grade'}),
             'domaineInteret':forms.TextInput(attrs={'class':'form-control','placeholder':'grade'}),
           }
+        labels={
+              'Nomncadreur' :'Nom',
+              'PrenomEncadreur':'Prenom',
+              'domaineInteret':'domaine d\'intérêt',
+
+            }
+
+       
