@@ -15,13 +15,13 @@
     <div class="center">
          <h1><img src="/static/png/icon3.png" alt="logo du site " width= "100" > 
             Formulaire d'inscription</h1>
-         <br><br>
+         <br>
          <div class="space">
         </div>
         <form method="POST">
            {% csrf_token %}
         {{formPromoteur}}
-           <br><br>
+           <br>
           <button type="submit" class="btn btn-primary">Envoyer</button>
       </form>
         {% comment %} <div class="centrText"> {% endcomment %}

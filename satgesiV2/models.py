@@ -6,6 +6,7 @@ class Stage (models.Model):
     document = models.FileField()
     statut = models.CharField(max_length=10)
     note = models.FloatField(max_length=4)
+  
  
 
 class Encadreur(models.Model):
@@ -15,6 +16,8 @@ class Encadreur(models.Model):
     Mail = models.EmailField()
     grade  =models.CharField(max_length=50)
     domaineInteret  =models.CharField(max_length=50)
+    def __str__(self):
+     return self.Nomncadreur
 
 class OrganismeAcceuil(models.Model):
     nomOrganisme = models.CharField(max_length=50)
@@ -22,6 +25,8 @@ class OrganismeAcceuil(models.Model):
     RaisonSocial = models.CharField(max_length=50)
     Service = models.CharField(max_length=50)
     Departement = models.CharField(max_length=50)
+    def __str__(self):
+     return self.nomOrganisme
 
 class Type(Stage):
     Type_Stage = models.CharField(max_length=4)
@@ -36,6 +41,7 @@ class GroupeStagiaire (models.Model):
     FicheDemande = models.FileField()
     idfEncadreur = models.ForeignKey("Encadreur",on_delete=models.SET_NULL,null=True,blank=True)
     idfpromoteur = models.ForeignKey("Promoteur",on_delete=models.SET_NULL,null=True,blank=True)
+   
 
 
 class Promoteur(models.Model):
@@ -47,6 +53,8 @@ class Promoteur(models.Model):
     domainIntérêt =models.CharField(max_length=50)
     idfOrganisme =  models.ForeignKey("OrganismeAcceuil",on_delete=models.SET_NULL,null=True,blank=True)
     idfGroupe =  models.ForeignKey("GroupeStagiaire",on_delete=models.SET_NULL,null=True,related_name='+',blank=True)
+    def __str__(self):
+     return self.NomPromoteur
 
 class Stagiere (models.Model):
     matricule = models.IntegerField()

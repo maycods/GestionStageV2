@@ -32,6 +32,7 @@ urlpatterns = [
       path('accept/',pageacc,name="accept"),
       path('Encadreur/',pagesix,name="createE"),
        path('Promoteur/',pagefive,name="createP"),
+       
        path('Organisme/',pageseven,name="createO"),
        path('GPStagieres/',pageeight,name="createG"),
        path('TypeStage/',pagenine,name="CreateS"),
@@ -46,5 +47,6 @@ urlpatterns = [
         path('GGSR/',GGstag,name="GGSR"),
         path('GSR/',Gstag,name="GSR"),
 
+ 
       ]
 
