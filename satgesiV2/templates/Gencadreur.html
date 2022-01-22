@@ -51,8 +51,12 @@
                  <td>{{item.grade}}</td>
                  <td>{{item.DomaineInteret}}</td>
                  <td>
+                  <a href="{% url 'supE' item.id  %}">
                   <button type="button">Supprimer</button>
+                </a>
+               <a href="{% url 'modifE' item.id  %}">
                   <button type="button">Modifier</button>
+              </a>
                  </td>
                </tr>
                {%endfor%}

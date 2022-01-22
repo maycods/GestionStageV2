@@ -1,3 +1,4 @@
+from webbrowser import get
 from django.shortcuts import render ,redirect
 from .models import Encadreur, Stagiere
 from satgesiV2.formEtud import  StagieresForm
@@ -81,6 +82,25 @@ def pagenine(request):
         formlaire = TypeForm()
         return render(request,'NinePage.html',{"formTypeS":formlaire})
 
+def mod (request, pk):
+   Encad  = Encadreur.objects.get(id=pk)
+   form = EncadreurForm(instance=Encad)
+   if request.method == "POST":
+       form = EncadreurForm(data=request.POST,instance=Encad)
+       if form.is_valid():
+           form.save()
+           return redirect("accept")
+   
+   return render(request,'SixPage.html',{"formEncadreur":form}) 
+
+def sup (request, pk):
+    Encad  = Encadreur.objects.get(id=pk)
+    if request.method =="POST":
+     Encad.delete()
+     return redirect("GE")
+
+    return render(request,'sup.html' ,{'item':Encad})  
+  
 
 
 def boxstage (request):
@@ -111,3 +131,5 @@ def Gtype (request):
 def Gorgan (request):
  return render(request,'Gorganime.html')
 
+def stats (request):
+ return render(request,'stat.html')
