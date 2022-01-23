@@ -19,7 +19,7 @@ from satgesiV2.views import pageone
 from satgesiV2.views import pagetwo
 from satgesiV2.views import pagethree
 from satgesiV2.views import pagefour
-from satgesiV2.views import pagefive
+from satgesiV2.views import pagefive,rech 
 from satgesiV2.views import pageacc ,sup,pageseven,pageeight,pagenine,mod
 from satgesiV2.views import pagesix,boxstage, Gencadreur, boxstage2,Gorgan,GGstag,Gprom,Gtype,Gstage,Gstag,stats
 
@@ -35,7 +35,8 @@ urlpatterns = [
       path('EncadMod/<str:pk>/',mod,name="modifE"),
 
       path('Encadsup/<str:pk>/',sup,name="supE"),
-       
+      
+      path('Encadrech/',rech,name="rechE"),
 
        path('Promoteur/',pagefive,name="createP"),
        

@@ -14,60 +14,69 @@
     <li class ="prev"><span></span></li>
     </ul>   
     <div class="center">
-        <h1> <img src="/static/png/icon3.png" alt="logo du site " width= "80" > Encadreur </h1>
-        <form method="post">
+        <h1> <img src="/static/png/icon3.png" alt="logo du site " width= "60" > Encadreur </h1>
+       
             <div class="space">
               
             </div>
             <script src="https://kit.fontawesome.com/330ca3277a.js" crossorigin="anonymous"></script>
             <div class="main">
-              <input type="text" name="box" placeholder="Entrer le ID...">
               <div class="btn">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="{% url 'createE'%}">
+            <form action="{% url 'rechE' %}" method="POST"  >
+               {% csrf_token %}
+              <input type="search" name="q" placeholder="Recherche...">
+              <button type="submit">recherche</button>
+              <a href="{% url 'createE'%}">
                 <button type="button">Ajouter</button>
                 </a>
+            </form>
               </div>
             </div>
+          <form>
              <table>
                <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
                  <th>Nom </th>  <!-- Th indique la première ligne du tableau -->
                  <th>Prenom</th>
-                 <th>Grade</th>
-                 <th>Domaine</th>
                  <th>Telephone</th>
                  <th>Email</th>
+                 <th>Grade</th>
+                 <th>Domaine</th>
                  <th>Actions</th>
 
                  
                </tr>
+              
                {% for item in Ec %}
                <tr>
                  <td>{{item.Nomncadreur}}</td>   <!--debut et fin  du contenue d'une cellule -->
                  <td>{{item.PrenomEncadreur}}</td>
-                 <td>{{item.grade}}</td>
-                 <td>{{item.domaineInteret}}</td>
                  <td>{{item.Telephone }}</td>
                  <td>{{item.Mail }}</td>
+                 <td>{{item.grade}}</td>
+                 <td>{{item.DomaineInteret}}</td>
                  <td>
+                 
                   <a href="{% url 'supE' item.id  %}">
                   <button type="button">Supprimer</button>
                 </a>
+               
                <a href="{% url 'modifE' item.id  %}">
                   <button type="button">Modifier</button>
               </a>
+       
                  </td>
                </tr>
                {%endfor%}
+              
          
              </table>
-            
+            </form>
               
             <div class="space">
 
             </div>
 
-        </form>
+        
 
     </div> 
 </body>

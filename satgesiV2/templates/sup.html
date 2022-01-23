@@ -26,10 +26,10 @@
                <form action= "{% url 'supE' item.id %}" method="POST">
                    {%csrf_token%}
                <center>
-                <input type="submit" name="Comfirmer">
+                <input class="btn btn-primary" type="submit"  name="Comfirmer">
                     
                     <a href="{% url 'GE'%}">
-                   <br><br> <button type="button">Annuler</button>
+                   <br><br> <button type="button" class="btn btn-primary">Annuler</button>
                   </a>
                 </center>
             </form>

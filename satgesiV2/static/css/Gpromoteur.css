@@ -111,7 +111,7 @@ body{
     padding: 10px 0;
     border-bottom: 1px solid silver; /*bordure du coté bas*/
   }
-  .center form{
+  .center form {
     padding: 0 150px;
     box-sizing: border-box;
   }
@@ -153,7 +153,7 @@ tr:hover {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
 }
 
-.center form button
+.center form button 
 {
 
     font-size: 12px;
@@ -164,7 +164,7 @@ tr:hover {
     background-color: rgb(26,73,139);
     width: 100px; 
     height: 35px;
-    margin: 0 15px;
+    margin: 0 4px;
 }
 .main
 {

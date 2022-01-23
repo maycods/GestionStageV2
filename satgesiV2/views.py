@@ -101,7 +101,15 @@ def sup (request, pk):
 
     return render(request,'sup.html' ,{'item':Encad})  
   
-
+def rech (request):
+ if request.method =="POST":
+     q = request.POST['q']
+     Encad  = Encadreur.objects.filter(Nomncadreur__contains= q) 
+     return render(request,'rech.html',{'Encad':Encad}) 
+ else:
+  text = "Aucun resultat"
+  return render(request,'rech.html',{'text': text}) 
+   
 
 def boxstage (request):
  return render(request,'boxStage.html')
