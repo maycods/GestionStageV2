@@ -2,9 +2,9 @@ from django.db import models
 
 class Stage (models.Model):  
     anne_univ =  models.DateField
-    theme = models.CharField(max_length=15)
+    theme = models.CharField(max_length=50)
     document = models.FileField()
-    statut = models.CharField(max_length=10)
+    statut = models.CharField(max_length=50)
     note = models.FloatField(max_length=4)
   
  
@@ -29,7 +29,7 @@ class OrganismeAcceuil(models.Model):
      return self.nomOrganisme
 
 class Type(Stage):
-    Type_Stage = models.CharField(max_length=4)
+    Type_Stage = models.CharField(max_length=50)
     # code_Stage = models.ForeignKey("Stage",on_delete=models.CASCADE,null=True)
     DateDebut = models.DateField()
     DateFin = models.DateField()

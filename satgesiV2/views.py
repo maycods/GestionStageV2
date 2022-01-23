@@ -1,6 +1,6 @@
 from webbrowser import get
 from django.shortcuts import render ,redirect
-from .models import Encadreur, Stagiere
+from .models import Encadreur, Stagiere ,Promoteur,OrganismeAcceuil,GroupeStagiaire,Type
 from satgesiV2.formEtud import  StagieresForm
 from  satgesiV2.formEncadreur import EncadreurForm
 from  satgesiV2.formPromoteur import PromoteurForm
@@ -117,19 +117,24 @@ def Gstage (request):
  return render(request,'GStage.html')
 
 def Gprom (request):
- return render(request,'Gpromoteur.html')
+    Promoteurs = Promoteur.objects.all()
+    return render(request,'Gpromoteur.html', {'PR':Promoteurs})
 
 def Gstag (request):
- return render(request,'Gstagiare.html')
+    Stagiares =Stagiere.objects.all()
+    return render(request,'Gstagiare.html', {'SG':Stagiares})
 
 def GGstag (request):
- return render(request,'GGstagiare.html')
+    Gstage = GroupeStagiaire.objects.all()
+    return render(request,'GGstagiare.html', {'GSG':Gstage})
 
 def Gtype (request):
- return render(request,'Gtypestage.html')
-
+    GTstage = Type.objects.all()
+    return render(request,'Gtypestage.html',{'TS':GTstage})
+ 
 def Gorgan (request):
- return render(request,'Gorganime.html')
+    Organisme = OrganismeAcceuil.objects.all()
+    return render(request,'Gorganime.html', {'or':Organisme})
 
 def stats (request):
  return render(request,'stat.html')

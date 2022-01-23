@@ -35,9 +35,8 @@
                  <th>Prenom</th>
                  <th>Grade</th>
                  <th>Domaine</th>
-                 <th>Email</th>
                  <th>Telephone</th>
-                 <th>Document</th>
+                 <th>Email</th>
                  <th>Actions</th>
 
                  
@@ -46,10 +45,10 @@
                <tr>
                  <td>{{item.Nomncadreur}}</td>   <!--debut et fin  du contenue d'une cellule -->
                  <td>{{item.PrenomEncadreur}}</td>
+                 <td>{{item.grade}}</td>
+                 <td>{{item.domaineInteret}}</td>
                  <td>{{item.Telephone }}</td>
                  <td>{{item.Mail }}</td>
-                 <td>{{item.grade}}</td>
-                 <td>{{item.DomaineInteret}}</td>
                  <td>
                   <a href="{% url 'supE' item.id  %}">
                   <button type="button">Supprimer</button>

@@ -30,20 +30,39 @@
               </div>
             </div>
  <br>
-             <table>
-               <br>
+          <table>
                <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
-                <th> Type_stage</th>
-                 <th>Code_stage</th>  <!-- Th indique la première ligne du tableau -->
-                 <th>Date Debut</th>
-                 <th>Date Fin</th>
-                 <th>Nombre Stagiares</th>
-                 <th>Idf_Groupe</th>
+                 <th>Type_Stage </th>  <!-- Th indique la première ligne du tableau -->
+                 <th>Theme</th>
+                 <th>Statut</th>
+                 <th>DateDebut</th>
+                 <th>DateFin</th>
+                 <th>NbreStagiare</th>
+                 <th>Note</th>
+                 <th>IDf_groupe</th>
                  <th>Actions</th>
 
-                 
                </tr>
-           
+               {% for item in TS %}
+               <tr>
+                 <td>{{item.Type_Stage}}</td>   <!--debut et fin  du contenue d'une cellule -->
+                 <td>{{item.theme}}</td>
+                 <td>{{item.statut}}</td>
+                 <td>{{item.DateDebut}}</td>
+                 <td>{{item.DateFin}}</td>
+                 <td>{{item.NbreStagiare }}</td>
+                 <td>{{item.note}}</td>
+                 <td>{{item.idfGroupe }}</td>
+                 <td>
+                  <a href="{% url 'supE' item.id  %}">
+                  <button type="button">Supprimer</button>
+                </a>
+               <a href="{% url 'modifE' item.id  %}">
+                  <button type="button">Modifier</button>
+              </a>
+                 </td>
+               </tr>
+               {%endfor%}
          
              </table>
             

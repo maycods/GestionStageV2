@@ -29,36 +29,42 @@
               </div>
             </div>
      
-             <table>
-               <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
-                 <th>Nom</th>  <!-- Th indique la première ligne du tableau -->
-                 <th>Prénom</th>
-                 <th>Fonction Occupée</th>
-                 <th>Domain Intérêt</th>
-                 <th>Telph</th>
-                 <th>Email</th>
-                 <th>Idf_Organisme</th>
-                 <th>Idf_Groupe</th>
-                 <th>Actions</th>
-
-                 
-               </tr>
-               <tr>
-                 <td>1</td>   <!--debut et fin  du contenue d'une cellule -->
-                 <td>fac</td>
-                 <td>on</td>
-                 <td>2020</td>
-                 <td>10</td>
-                 <td>null</td>
-                 <td>10</td>
-                 <td>null</td>
-                 <td>
-                  <button type="button">Supprimer</button>
-                  <button type="button">Modifier</button>
-                 </td>
-               </tr>
-         
-             </table>
+            <table>
+              <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
+                <th>Nom  </th>  <!-- Th indique la première ligne du tableau -->
+                <th>Prenom</th>
+                <th>Telph</th>
+                <th>Email</th>
+                <th>Fonction</th>
+                <th>Domaine</th>
+                <th>Ogranisme</th>
+                <th>Groupe</th>
+                <th>Actions</th>
+                
+              </tr>
+              
+              {% for item in PR %}
+              <tr>
+                <td>{{item.NomPromoteur}}</td>   <!--debut et fin  du contenue d'une cellule -->
+                <td>{{item.PrenomPromoteur}}</td>
+                <td>{{item.telephone}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.FonctionOccupée}}</td>
+                <td>{{item.domainIntérêt}}</td>
+                <td>{{item.idfOrganisme}}</td>
+                <td>{{item.idfGroupe}}</td>
+                <td>
+                 <a href="{% url 'supE' item.id  %}">
+                 <button type="button">Supprimer</button>
+               </a>
+              <a href="{% url 'modifE' item.id  %}">
+                 <button type="button">Modifier</button>
+             </a>
+                </td>
+              </tr>
+              {%endfor%}
+        
+            </table>
             
               
             <div class="space">

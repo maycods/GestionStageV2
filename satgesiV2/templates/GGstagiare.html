@@ -29,26 +29,33 @@
               </div>
             </div>
         
-             <table>
-               <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
-                 <th>Fiche Demande</th>  <!-- Th indique la première ligne du tableau -->
-                 <th> Idf_Encadreur</th>
-                 <th>Idf_Promoteur</th>
-                 <th>Actions</th>
+            <table>
+              <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
+                <th>Idf</th>  <!-- Th indique la première ligne du tableau -->
+                <th>Encadreur</th>
+                <th>Promoteur</th>
+                <th>Actions</th>
 
-                 
-               </tr>
-               <tr>
-                 <td>1</td>   <!--debut et fin  du contenue d'une cellule -->
-                 <td>fac</td>
-                 <td>null</td>
-                 <td>
-                  <button type="button">Supprimer</button>
-                  <button type="button">Modifier</button>
-                 </td>
-               </tr>
-         
-             </table>
+
+              </tr>
+              {% for item in GSG %}
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.idfEncadreur}}</td>   <!--debut et fin  du contenue d'une cellule -->
+                <td>{{item.idfpromoteur}}</td>
+              
+                <td>
+                 <a href="{% url 'supE' item.id  %}">
+                 <button type="button">Supprimer</button>
+               </a>
+              <a href="{% url 'modifE' item.id  %}">
+                 <button type="button">Modifier</button>
+             </a>
+                </td>
+              </tr>
+              {%endfor%}
+        
+            </table>
             
               
             <div class="space">
