@@ -40,6 +40,8 @@ class Type(Stage):
 class GroupeStagiaire (models.Model):
     FicheDemande = models.FileField()
     idfpromoteur = models.ForeignKey("Promoteur",on_delete=models.SET_NULL,null=True,blank=True)
+    idfencadreur = models.ForeignKey("Encadreur",on_delete=models.SET_NULL,null=True,blank=True)
+
    
 
 
