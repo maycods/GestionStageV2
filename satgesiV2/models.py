@@ -12,7 +12,7 @@ class Stage (models.Model):
 class Encadreur(models.Model):
     Nomncadreur  =models.CharField(max_length=50)
     PrenomEncadreur  =models.CharField(max_length=50)
-    Telephone = models.IntegerField()
+    Telephone = models.PositiveIntegerField()
     Mail = models.EmailField()
     grade  =models.CharField(max_length=50)
     domaineInteret  =models.CharField(max_length=50)
@@ -33,13 +33,12 @@ class Type(Stage):
     # code_Stage = models.ForeignKey("Stage",on_delete=models.CASCADE,null=True)
     DateDebut = models.DateField()
     DateFin = models.DateField()
-    NbreStagiare = models.IntegerField()
+    NbreStagiare = models.PositiveIntegerField()
     idfGroupe = models.ForeignKey("GroupeStagiaire",on_delete=models.SET_NULL,null=True,related_name='+',blank=True) 
     unique_together = ('Type_Stage','code_Stage')
 
 class GroupeStagiaire (models.Model):
     FicheDemande = models.FileField()
-    idfEncadreur = models.ForeignKey("Encadreur",on_delete=models.SET_NULL,null=True,blank=True)
     idfpromoteur = models.ForeignKey("Promoteur",on_delete=models.SET_NULL,null=True,blank=True)
    
 
@@ -47,7 +46,7 @@ class GroupeStagiaire (models.Model):
 class Promoteur(models.Model):
     NomPromoteur = models.CharField(max_length=50)
     PrenomPromoteur = models.CharField(max_length=50)
-    telephone =models.IntegerField()
+    telephone =models.PositiveIntegerField()
     email = models.EmailField()
     FonctionOccupée =models.CharField(max_length=50)
     domainIntérêt =models.CharField(max_length=50)
@@ -57,10 +56,10 @@ class Promoteur(models.Model):
      return self.NomPromoteur
 
 class Stagiere (models.Model):
-    matricule = models.IntegerField()
+    matricule = models.PositiveIntegerField()
     NomStagiere = models.CharField(max_length=50)
     PrenomStagiere = models.CharField(max_length=50)
-    niveau = models.IntegerField()
+    niveau = models.PositiveIntegerField()
     DateNaissance = models.DateField()
     idf_Groupe = models.ForeignKey("GroupeStagiaire", on_delete=models.SET_NULL,null=True,blank=True)
 

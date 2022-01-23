@@ -14,7 +14,13 @@ class PromoteurForm(ModelForm):
             'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'email@example.com'}),
             'FonctionOccupée':forms.TextInput(attrs={'class':'form-control','placeholder':'Fonction'}),
             'domainIntérêt':forms.TextInput(attrs={'class':'form-control','placeholder':'Domaine'}),
-            'idfOrganisme' : forms.TextInput(attrs={'class':'form-control'}),
-            'idfGroupe' :forms.TextInput(attrs={'class':'form-control'}),
+            'idf_Organisme': forms.TextInput(attrs={'class':'form-control'}),
+            'idf_Groupe':forms.TextInput(attrs={'class':'form-control'}),
+
+          }
+        labels={
+              'idf_Organisme':'Identificateur de l\'Organisme',
+               'idf_Groupe':'Identificateur du groupe',
+
           }
          
