@@ -1,6 +1,6 @@
 from webbrowser import get
 from django.shortcuts import render ,redirect
-from .models import Encadreur, Stagiere ,Promoteur,OrganismeAcceuil,GroupeStagiaire,Type
+from .models import Encadreur, Stage, Stagiere ,Promoteur,OrganismeAcceuil,GroupeStagiaire,Type,Sinscrit
 from satgesiV2.formEtud import  StagieresForm
 from  satgesiV2.formEncadreur import EncadreurForm
 from  satgesiV2.formPromoteur import PromoteurForm
@@ -222,7 +222,7 @@ def recho (request):
 def recht (request):
  if request.method =="POST":
      q = request.POST['q']
-     ts  = Type.objects.filter(Type_Stage__contains= q) 
+     ts  = Type.objects.filter(id__contains= q) 
      return render(request,'recht.html',{'ts':ts}) 
  else:
   text = "Aucun resultat"
@@ -247,7 +247,8 @@ def boxstage2 (request):
  return render(request,'box2-Etudiant.html')
 
 def Gstage (request):
- return render(request,'GStage.html')
+    s=Sinscrit.objects.all()
+    return render(request,'GStage.html',{'s':s})
 
 def Gprom (request):
     Promoteurs = Promoteur.objects.all()

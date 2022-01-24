@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <title>ESI</title>
         
-        <link rel="stylesheet" href="/static/css/GStage.css">
+        <link rel="stylesheet" href="/static/css/GtypeStage.css">
         <link rel="icon" href="/static/png/icon3.png" >
     </head>
     <body>
@@ -15,80 +15,26 @@
       <!--<li class ="next"><span></span></li> -->
       </ul>   
       <div class="center">
-          <h1><img src="/static/png/logo.gif" alt="logo du site " width= "150">Stages<img src="/static/png/logo.gif" alt="logo du site " width= "150" > </h1>
-          <form method="post">
+          <h1><img src="/static/png/icon3.png" alt="logo du site " width= "60" >Inscription Stages-Groupe </h1>
+          <form >
               <div class="space">
               
               </div>
                
                <table>
                  <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
-                   <th>Code_stage</th>  <!-- Th indique la première ligne du tableau -->
-                   <th> Thème</th>
-                   <th>Statut</th>
-                   <th>Année universitaire</th>
-                   <th>Note</th>
-                   <th>Document</th>
-                   
+                   <th>Identificateur _stage</th>  <!-- Th indique la première ligne du tableau -->
+                   <th> Identificateur Groupe</th>
                  </tr>
-                 <tr>
-                   <td>1</td>   <!--debut et fin  du contenue d'une cellule -->
-                   <td>fac</td>
-                   <td>on</td>
-                   <td>2020</td>
-                   <td>10</td>
-                   <td>null</td>
-                 </tr>
-            
+                
+                {% for item in s %}
                 <tr>
-                  <td>1</td>
-                  <td>fac</td>
-                  <td>on</td>
-                  <td>2020</td>
-                  <td>10</td>
-                  <td>null</td>
+                  <td>{{item.TypeStage}}</td>   <!--debut et fin  du contenue d'une cellule -->
+                  <td>{{item.idfGroupe}}</td>
                 </tr>
-                <tr>
-                  <td>1</td>
-                  <td>fac</td>
-                  <td>on</td>
-                  <td>2020</td>
-                  <td>10</td>
-                  <td>null</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>fac</td>
-                  <td>on</td>
-                  <td>2020</td>
-                  <td>10</td>
-                  <td>null</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>fac</td>
-                  <td>on</td>
-                  <td>2020</td>
-                  <td>10</td>
-                  <td>null</td>
-                </tr>
-          
-                <tr>
-                  <td>1</td>
-                  <td>fac</td>
-                  <td>on</td>
-                  <td>2020</td>
-                  <td>10</td>
-                  <td>null</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>fac</td>
-                  <td>on</td>
-                  <td>2020</td>
-                  <td>10</td>
-                  <td>null</td>
-                </tr>
+                {% endfor %}
+              
+                
                </table>
               
                 
