@@ -7,66 +7,70 @@
         <link rel="stylesheet" href="/static/css/Gpromoteur.css">
         <link rel="icon" href="/static/png/icon3.png" >
     </head>
-<body>
+    <body>
+
   
-    <ul>
-    <li class ="prev"><span></span></li>
-    </ul>   
-    <div class="center">
-        <h1> <img src="/static/png/icon3.png" alt="logo du site " width= "60">Stagieres</h1>
-        <form method="post">
-            <div class="space">
-            
-            </div>
-            <script src="https://kit.fontawesome.com/330ca3277a.js" crossorigin="anonymous"></script>
-            <div class="main">
-              <input type="text" name="box" placeholder="Entrer le ID...">
-              <div class="btn">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="{% url 'create'%}">
-                <button type="button">Ajouter</button>
-                </a>
+      <ul>
+      <li class ="prev"><span></span></li>
+      </ul>   
+      <div class="center">
+          <h1> <img src="/static/png/icon3.png" alt="logo du site " width= "60" > Stagiare </h1>
+         
+              <div class="space">
+                
               </div>
-            </div>
-            <table>
-              <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
-                <th>Matricule</th>
-                <th>Nom </th>  <!-- Th indique la première ligne du tableau -->
-                <th>Prenom</th>
-                <th>Niveau</th>
-                <th>Date de naissance</th>
-                <th>Idf Groupe</th>
-                <th>Actions</th>
-              </tr>
-              {% for item in SG %}
-              <tr>
-                <td>{{item.matricule}}</td>   <!--debut et fin  du contenue d'une cellule -->
-                <td>{{item.NomStagiere}}</td>
-                <td>{{item.PrenomStagiere}}</td>
-                <td>{{item.niveau}}</td>
-                <td>{{item.DateNaissance }}</td>
-                <td>{{item.idf_Groupe }}</td>
-                <td>
-                 <a href="{% url 'supE' item.id  %}">
-                 <button type="button">Supprimer</button>
+              <script src="https://kit.fontawesome.com/330ca3277a.js" crossorigin="anonymous"></script>
+              <div class="main">
+                <div class="btn">
+              <form action="{% url 'rechs' %}" method="POST"  >
+                 {% csrf_token %}
+                <input type="search" name="q" placeholder="Recherche...">
+                <button type="submit">recherche</button>
+                <a href="{% url 'create'%}">
+                  <button type="button">Ajouter</button>
+                  </a>
+              </form>
+                </div>
+              </div>
+            <form>
+              <table>
+                <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
+                  <th>Matricule</th>
+                  <th>Nom </th>  <!-- Th indique la première ligne du tableau -->
+                  <th>Prenom</th>
+                  <th>Niveau</th>
+                  <th>Date de naissance</th>
+                  <th>Idf Groupe</th>
+                  <th>Actions</th>
+                </tr>
+                {% for item in SG %}
+                <tr>
+                  <td>{{item.matricule}}</td>   <!--debut et fin  du contenue d'une cellule -->
+                  <td>{{item.NomStagiere}}</td>
+                  <td>{{item.PrenomStagiere}}</td>
+                  <td>{{item.niveau}}</td>
+                  <td>{{item.DateNaissance }}</td>
+                  <td>{{item.idf_Groupe }}</td>
+                  <td>
+                   <a href="{% url 'sups' item.id  %}">
+                   <button type="button">Supprimer</button>
+                 </a>
+                <a href="{% url 'modifS' item.id  %}">
+                   <button type="button">Modifier</button>
                </a>
-              <a href="{% url 'modifE' item.id  %}">
-                 <button type="button">Modifier</button>
-             </a>
-                </td>
-              </tr>
-              {%endfor%}
-        
-            </table>
-           
+                  </td>
+                </tr>
+                {%endfor%}
             
-              
-            <div class="space">
-
-            </div>
-
-        </form>
-
-    </div> 
-</body>
+              </table>
+              </form>
+                
+              <div class="space">
+  
+              </div>
+  
+          
+  
+      </div> 
+  </body>
 </html>

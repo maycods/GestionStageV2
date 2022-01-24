@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from satgesiV2.views import pageone
+from satgesiV2.views import mod, modTS, modpGS, modpO, pageone,modpr, recho, rechp, supP, supgs, supo,supt,rechgs,recht,modS,sups,rechs
 from satgesiV2.views import pagetwo
 from satgesiV2.views import pagethree
 from satgesiV2.views import pagefour
@@ -30,16 +30,26 @@ urlpatterns = [
       path('formul/',pagethree,name="formul"),
       path('Etudiant/',pagefour,name="create"),
       path('accept/',pageacc,name="accept"),
-
-      path('Encadreur/',pagesix,name="createE"),
       path('EncadMod/<str:pk>/',mod,name="modifE"),
-
+      path('ProMod/<str:pk>/',modpr,name="modifP"),
+      path('orgMod/<str:pk>/',modpO,name="modifO"),
+      path('gsMod/<str:pk>/',modpGS,name="modifGS"),
+       path('sMod/<str:pk>/',modS,name="modifS"),
+      path('tsMod/<str:pk>/',modTS,name="modifT"),
       path('Encadsup/<str:pk>/',sup,name="supE"),
-      
+      path('prosup/<str:pk>/',supP,name="supP"),
+      path('orgsup/<str:pk>/',supo,name="supo"),
+      path('tssup/<str:pk>/',supt,name="supt"),
+      path('gssup/<str:pk>/',supgs,name="supgs"),
+      path('ssup/<str:pk>/',sups,name="sups"),
       path('Encadrech/',rech,name="rechE"),
-
+      path('prorech/',rechp,name="rechp"),
+      path('orgrech/',recho,name="recho"),
+      path('gsrech/',rechgs,name="rechgs"),
+      path('tsrech/',recht,name="recht"),
+      path('ssrech/',rechs,name="rechs"),
        path('Promoteur/',pagefive,name="createP"),
-       
+       path('Encadreur/',pagesix,name="createE"),
        path('Organisme/',pageseven,name="createO"),
        path('GPStagieres/',pageeight,name="createG"),
        path('TypeStage/',pagenine,name="CreateS"),

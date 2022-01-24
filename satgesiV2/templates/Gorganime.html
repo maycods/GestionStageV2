@@ -7,65 +7,69 @@
         <link rel="stylesheet" href="/static/css/Gpromoteur.css">
         <link rel="icon" href="/static/png/icon3.png" >
     </head>
-<body>
- 
-    <ul>
-    <li class ="prev"><span></span></li>
-    </ul>   
-    <div class="center">
-        <h1><img src="/static/png/icon3.png" alt="logo du site " width= "60"> Organisme D'Acceuil</h1>
-        <form method="post">
-            <div class="space">
-            
-            </div>
-            <script src="https://kit.fontawesome.com/330ca3277a.js" crossorigin="anonymous"></script>
-            <div class="main">
-              <input type="text" name="box" placeholder="Entrer le ID...">
-              <div class="btn">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="{% url 'createO'%}">
-                <button type="button">Ajouter</button>
-              </a>
-              </div>
-            </div>
-   
-            <table>
-              <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
-                <th>Nom Organisme </th>  <!-- Th indique la première ligne du tableau -->
-                <th>Adresse</th>
-                <th>Raison social</th>
-                <th>Service</th>
-                <th>Departement</th>
-                <th>Actions</th>
+    <body>
+
+  
+      <ul>
+      <li class ="prev"><span></span></li>
+      </ul>   
+      <div class="center">
+          <h1> <img src="/static/png/icon3.png" alt="logo du site " width= "60" > Organisme D'Acceuil </h1>
+         
+              <div class="space">
                 
-              </tr>
-              {% for item in or %}
-              <tr>
-                <td>{{item.nomOrganisme}}</td>   <!--debut et fin  du contenue d'une cellule -->
-                <td>{{item.adresse}}</td>
-                <td>{{item.RaisonSocial}}</td>
-                <td>{{item.Service}}</td>
-                <td>{{item.Departement}}</td>
-                <td>
-                 <a href="{% url 'supE' item.id  %}">
-                 <button type="button">Supprimer</button>
+              </div>
+              <script src="https://kit.fontawesome.com/330ca3277a.js" crossorigin="anonymous"></script>
+              <div class="main">
+                <div class="btn">
+              <form action="{% url 'recho' %}" method="POST"  >
+                 {% csrf_token %}
+                <input type="search" name="q" placeholder="Recherche...">
+                <button type="submit">recherche</button>
+                <a href="{% url 'createO'%}">
+                  <button type="button">Ajouter</button>
+                  </a>
+              </form>
+                </div>
+              </div>
+            <form>
+              <table>
+                <tr id="header"> <!--indique le debut et la fin d'unr ligne --> 
+                  <th>Nom Organisme </th>  <!-- Th indique la première ligne du tableau -->
+                  <th>Adresse</th>
+                  <th>Raison social</th>
+                  <th>Service</th>
+                  <th>Departement</th>
+                  <th>Actions</th>
+                  
+                </tr>
+                {% for item in or %}
+                <tr>
+                  <td>{{item.nomOrganisme}}</td>   <!--debut et fin  du contenue d'une cellule -->
+                  <td>{{item.adresse}}</td>
+                  <td>{{item.RaisonSocial}}</td>
+                  <td>{{item.Service}}</td>
+                  <td>{{item.Departement}}</td>
+                  <td>
+                   <a href="{% url 'supo' item.id  %}">
+                   <button type="button">Supprimer</button>
+                 </a>
+                <a href="{% url 'modifO' item.id  %}">
+                   <button type="button">Modifier</button>
                </a>
-              <a href="{% url 'modifE' item.id  %}">
-                 <button type="button">Modifier</button>
-             </a>
-                </td>
-              </tr>
-              {%endfor%}
-        
-            </table>
+                  </td>
+                </tr>
+                {%endfor%}
             
-              
-            <div class="space">
-
-            </div>
-
-        </form>
-
-    </div> 
-</body>
+              </table>
+              </form>
+                
+              <div class="space">
+  
+              </div>
+  
+          
+  
+      </div> 
+  </body>
 </html>

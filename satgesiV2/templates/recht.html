@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <title>ESI</title>
+        <link rel="stylesheet" href="/static/css/Gpromoteur.css">  
+        <link rel="icon" href="/static/png/icon3.png" >
+    </head>
+<body>
+
+  
+    <ul>
+    <li class ="prev"><span></span></li>
+    </ul>   
+    <div class="center">
+        <h1> <img src="/static/png/icon3.png" alt="logo du site " width= "60" > Encadreur </h1>
+        <form method="post">
+            <div class="space">
+              
+            </div>
+            <script src="https://kit.fontawesome.com/330ca3277a.js" crossorigin="anonymous"></script>
+           {%if text  %}
+           <br><br>
+           <center>
+           <h1>{{text}}</h1>
+        </center>
+        {% endif %}
+
+           {% if ts %}
+           <table>
+            <tr id="header"> <!--indique le debut et la fin d'unr ligne -->  
+              <th>Type_Stage </th>  <!-- Th indique la première ligne du tableau -->
+              <th>Theme</th>
+              <th>Statut</th>
+              <th>DateDebut</th>
+              <th>DateFin</th>
+              <th>NbreStagiare</th>
+              <th>Note</th>
+              <th>IDf_groupe</th>
+              <th>Actions</th>
+
+            </tr>
+            {% for item in ts %}
+            <tr>
+              <td>{{item.Type_Stage}}</td>   <!--debut et fin  du contenue d'une cellule -->
+              <td>{{item.theme}}</td>
+              <td>{{item.statut}}</td>
+              <td>{{item.DateDebut}}</td>
+              <td>{{item.DateFin}}</td>
+              <td>{{item.NbreStagiare }}</td>
+              <td>{{item.note}}</td>
+              <td>{{item.idfGroupe }}</td>
+              <td>
+               <a href="{% url 'supt' item.id  %}">
+               <button type="button">Supprimer</button>
+             </a>
+            <a href="{% url 'modifT' item.id  %}">
+               <button type="button">Modifier</button>
+           </a>
+              </td>
+            </tr>
+            {%endfor%}
+      
+          </table>
+
+             {% else %}
+             <br><br>
+             <center>
+             <h5>Aucun Resultat</h5>
+          </center>
+             {% endif %}
+              
+            <div class="space">
+
+            </div>
+
+        </form>
+
+    </div> 
+</body>
+</html>

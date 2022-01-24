@@ -15,7 +15,6 @@
     </ul>   
     <div class="center">
         <h1> <img src="/static/png/icon3.png" alt="logo du site " width= "40" > Encadreur </h1>
-        <form method="post">
             <div class="space">
               
             </div>
@@ -27,14 +26,15 @@
                <form action= "{% url 'supE' item.id %}" method="POST">
                    {%csrf_token%}
                   
-                <input  style = 'background: rgb(26,73,139); color: white;  font-weight: bold;border-radius: 100px; padding: 15px;'type="submit"  name="Comfirmer">
-                  <br>
+                 <input  style = 'background: rgb(26,73,139); color: white;  font-weight: bold;border-radius: 100px; padding: 15px;'type="submit"  name="Comfirmer">
+                </form>
+                <br>
                     <a href="{% url 'GE'%}">
                     <button  style = 'background: rgb(26,73,139); color: white;  font-weight: bold;border-radius: 100px;
                      padding: 5px;margin: 5px; width: 90px; height: 60px;' >Annuler</button>
                   </a>
                 </center>
-            </form>
+            
             </div>
             
             

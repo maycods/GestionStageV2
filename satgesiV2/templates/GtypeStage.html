@@ -7,71 +7,75 @@
         <link rel="stylesheet" href="/static/css/GtypeStage.css">
         <link rel="icon" href="/static/png/icon3.png" >
     </head>
-<body>
-      
+    <body>
 
-    <ul>
-    <li class ="prev"><span></span></li>
-    </ul>   
-    <div class="center">
-        <h1> <img src="/static/png/icon3.png" alt="logo du site " width= "60" > Type de Stages  </h1>
-        <form method="post">
-            
-            <script src="https://kit.fontawesome.com/330ca3277a.js" crossorigin="anonymous"></script>
-            <div class="main">
-              <input type="text" name="box" placeholder="Entrer le ID...">
-              <div class="btn">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="{% url 'CreateS'%}">
-                <button type="button">Ajouter</button>
-              </a>
-              
-              </div>
-            </div>
-          
-          <table>
-               <tr id="header"> <!--indique le debut et la fin d'unr ligne -->  
-                 <th>Type_Stage </th>  <!-- Th indique la première ligne du tableau -->
-                 <th>Theme</th>
-                 <th>Statut</th>
-                 <th>DateDebut</th>
-                 <th>DateFin</th>
-                 <th>NbreStagiare</th>
-                 <th>Note</th>
-                 <th>IDf_groupe</th>
-                 <th>Actions</th>
-
-               </tr>
-               {% for item in TS %}
-               <tr>
-                 <td>{{item.Type_Stage}}</td>   <!--debut et fin  du contenue d'une cellule -->
-                 <td>{{item.theme}}</td>
-                 <td>{{item.statut}}</td>
-                 <td>{{item.DateDebut}}</td>
-                 <td>{{item.DateFin}}</td>
-                 <td>{{item.NbreStagiare }}</td>
-                 <td>{{item.note}}</td>
-                 <td>{{item.idfGroupe }}</td>
-                 <td>
-                  <a href="{% url 'supE' item.id  %}">
-                  <button type="button">Supprimer</button>
-                </a>
-               <a href="{% url 'modifE' item.id  %}">
-                  <button type="button">Modifier</button>
-              </a>
-                 </td>
-               </tr>
-               {%endfor%}
+  
+      <ul>
+      <li class ="prev"><span></span></li>
+      </ul>   
+      <div class="center">
+          <h1> <img src="/static/png/icon3.png" alt="logo du site " width= "60" > Type_Stage </h1>
          
-             </table>
-            
-              
-            <div class="space">
-
-            </div>
-
-        </form>
-
-    </div> 
-</body>
+              <div class="space">
+                
+              </div>
+              <script src="https://kit.fontawesome.com/330ca3277a.js" crossorigin="anonymous"></script>
+              <div class="main">
+                <div class="btn">
+              <form action="{% url 'recht'%}" method="POST"  >
+                 {% csrf_token %}
+                <input type="search" name="q" placeholder="Recherche...">
+                <button type="submit">recherche</button>
+                <a href="{% url 'CreateS'%}">
+                  <button type="button"style = 'margin-right: 90px ; ' >Ajouter</button>
+                  </a>
+              </form>
+                </div>
+              </div>
+            <form>
+              <table>
+                <tr id="header"> <!--indique le debut et la fin d'unr ligne -->  
+                  <th>Type_Stage </th>  <!-- Th indique la première ligne du tableau -->
+                  <th>Theme</th>
+                  <th>Statut</th>
+                  <th>DateDebut</th>
+                  <th>DateFin</th>
+                  <th>NbreStagiare</th>
+                  <th>Note</th>
+                  <th>IDf_groupe</th>
+                  <th>Actions</th>
+ 
+                </tr>
+                {% for item in TS %}
+                <tr>
+                  <td>{{item.Type_Stage}}</td>   <!--debut et fin  du contenue d'une cellule -->
+                  <td>{{item.theme}}</td>
+                  <td>{{item.statut}}</td>
+                  <td>{{item.DateDebut}}</td>
+                  <td>{{item.DateFin}}</td>
+                  <td>{{item.NbreStagiare }}</td>
+                  <td>{{item.note}}</td>
+                  <td>{{item.idfGroupe }}</td>
+                  <td>
+                   <a href="{% url 'supt' item.id  %}">
+                   <button type="button">Supprimer</button>
+                 </a>
+                <a href="{% url 'modifT' item.id  %}">
+                   <button type="button">Modifier</button>
+               </a>
+                  </td>
+                </tr>
+                {%endfor%}
+          
+              </table>
+              </form>
+                
+              <div class="space">
+  
+              </div>
+  
+          
+  
+      </div> 
+  </body>
 </html>
