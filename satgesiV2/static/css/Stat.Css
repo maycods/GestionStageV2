@@ -1,0 +1,178 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #ecf0f1;
+    height: 100vh;
+    overflow: scroll; /*le texte ne depasse pas la limite du bloc si c'est le cas on le coupe*/
+  }
+  ul{
+    position: absolute;
+    top:11%;
+    left:15%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+  } ul li{
+   
+    list-style: none;
+    width: 50px; 
+   height: 50px;
+   background-color: rgb(26,73,139); 
+   margin: 0 15px;
+   border-radius: 50%; 
+   transition: .5s;
+    
+  }
+  ul li:hover{
+    background-color:rgb(26,73,139); 
+  }
+  ul li span{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border:4px solid white ;/*la flache*/
+    transition: .5s;
+  }
+  /*
+  /*NEXT
+  ul li.next span{  /*position de la fleche un carre et on modifie 
+    top:50%; 
+    right: 20px;
+    transform: translateY(-50% ) rotate(-45deg); 
+    border-left: none;
+    border-top: none;
+  }
+  ul li.next:hover span{
+    
+    right: 16%;
+    
+  }
+  ul li.next span:before{/*ici la ligne 
+    content: '';
+    position: absolute;
+    width: 38px;
+    height: 4px;
+    background-color: #fff;
+    /*ici la ligne position
+    transform-origin: right;
+    transform:rotate(45deg) translate(1px,25px); scroll-snap-type-x: 0; /* yroh
+    transition: .5s;
+  }
+  ul li.next span:hover{/*ici la ligne hover tban 
+    
+    transform:rotate(45deg) translate(0px,25px); scroll-snap-type-x: 1; /*il s'affiche 
+    
+  }
+  /*prev*/
+  ul li.prev span{  /*position de la fleche un carre et on modifie */
+    top:50%; 
+    left: 20px;
+    transform: translateY(-50% ) rotate(-45deg); 
+    border-right: none;
+    border-bottom: none;
+  }
+  ul li.prev:hover span{
+    
+    left: 16%;
+    
+  }
+  ul li.prev span:before{/*ici la ligne */
+    content: '';
+    position: absolute;
+    width: 38px;
+    height: 4px;
+    background-color: white;
+    /*ici la ligne position*/
+    transform-origin: left;
+    transform:rotate(45deg) translate(-2px,-1px); scroll-snap-type-x: 0;  /*yroh*/
+    transition: .5s;
+  }
+  ul li.prev span:hover{/*ici la ligne hover tban */
+    
+    transform:rotate(45deg) translate(-2px,-1px); scroll-snap-type-x: 1; /*il s'affiche */
+    
+  }
+  
+  .center{
+  
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px; /*propriete des bordures*/
+    box-shadow: 10px 10px 15px rgb(26,73,139); /*ici kanet noir */
+  }
+  .center h1{
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid silver; /*bordure du coté bas*/
+  }
+  .center form{
+    padding: 0 150px;
+    box-sizing: border-box;
+  }
+  table {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-collapse: collapse; /*le carre du tableau*/
+  width: 800px;
+  height: 350px;
+  border: 1px solid #bdc3c7;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  tr {
+  transition: all .2s ease-in;
+  cursor: pointer;
+  }
+  
+  th,
+  td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  }
+  
+  #header {
+  background-color: rgb(26,73,139);
+  color: #fff;
+  }
+  
+  
+  
+  tr:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.02);
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+
+    .center{
+      position: absolute;
+      top: 57%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1000px;
+      height: 80vh;
+      background:white;
+      border-radius: 10px; /*propriete des bordures*/
+      box-shadow: 10px 10px 15px rgb(26,73,139); /*ici kanet noir */
+    }
+    .center h1{
+      text-align: center;
+      padding: 20px 0;
+      border-bottom: 1px solid silver; /*bordure du coté bas*/
+    }
+    .center form{
+      padding: 0 150px;
+      box-sizing: border-box;
+    }
+    .space
+   {
+       margin: 30px 0; /*sert faire la diffeence entre les bouttons */
+   }
+ 
+  

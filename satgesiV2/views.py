@@ -7,6 +7,9 @@ from  satgesiV2.formPromoteur import PromoteurForm
 from satgesiV2.formOrganisme import OrganismeAcceuilForm
 from satgesiV2.formGroupeStagiaire import GroupeStagiaireFrom
 from  satgesiV2.formTypeS import TypeForm
+from django.db.models import Count
+
+
 # Create your views here.
 def pageone (request):
  return render(request,'Firstpage.html')
@@ -62,15 +65,18 @@ def pageseven(request):
         return render(request,'SevenPage.html',{"formOrganisme":formula})
 
 
-def pageeight(request):
+def pageeight (request):
     if request.method == "POST":
-       form =  OrganismeAcceuilForm(data=request.POST)
+       form = GroupeStagiaireFrom(data=request.POST)
        if form.is_valid():
            form.save()
            return redirect("accept")
+       else:
+           form.save()
+           return redirect("accept")
     else:
-        formulair = GroupeStagiaireFrom()
-        return render(request,'eightPage.html',{"formGroupeStagiaire":formulair})
+        form = GroupeStagiaireFrom()
+        return render(request,'eightPage.html',{"formGroupeStagiaire":form})
 
 def pagenine(request):
     if request.method == "POST":
@@ -121,8 +127,8 @@ def modpGS (request, pk):
        if form.is_valid():
            form.save()
            return redirect("accept")
-   
    return render(request,'eightPage.html',{"formGroupeStagiaire":form}) 
+
 def modTS (request, pk):
    ts = Type.objects.get(id=pk)
    form = TypeForm(instance=ts)
@@ -270,5 +276,11 @@ def Gorgan (request):
     Organisme = OrganismeAcceuil.objects.all()
     return render(request,'Gorganime.html', {'or':Organisme})
 
-def stats (request):
- return render(request,'stat.html')
+def stats(request):
+
+    # s= Type.objects.raw("SELECT count(*) as requette FROM satgesiV2_type GROUP BY satgesiV2_Type_Stage")
+    # s=Type.objects.values('Type_Stage').annotate(total=Count('id'))
+    d=set(Type.objects.values_list('anneuniv',flat=True))
+    print(d)
+    
+    return render(request,'stat.html',{'d':d})

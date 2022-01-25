@@ -1,7 +1,7 @@
 from django.db import models
 
 class Stage (models.Model):  
-    anne_univ =  models.DateField
+    anneuniv = models.DateField(null=True)
     theme = models.CharField(max_length=50)
     document = models.FileField()
     statut = models.CharField(max_length=50)

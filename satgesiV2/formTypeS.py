@@ -7,7 +7,6 @@ class TypeForm(ModelForm):
      class Meta:
         model = Type
         fields='__all__'
-
         widget={
             'Type_Stage':forms.TextInput(attrs={'class':'form-control'}),
             'DateDebut':forms.DateInput(attrs={'class':'form-control'}),
