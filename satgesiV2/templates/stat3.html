@@ -10,18 +10,21 @@
         <link rel="icon" href="/static/png/icon3.png" >
     </head>
     <body>
-    
+        
+        <p>Chaque année :</p>
+    <p> Répartition des PFE / entreprise.</p>
+        
       <ul>
-      
-
+        <form action="{% url 'ST3' %}" method="POST"  >
+            {% csrf_token %}
+           <input type="date" name="a" placeholder="Recherche année...">
+           <button class = "btn btn-outline-primary " type="submit">recherche</button>
+         </form>
       <!--<li class ="next"><span></span></li> -->
       </ul>   
     <center>
           <h1><img src="/static/png/logo.gif" alt="logo du site " width= "150">Statistiques<img src="/static/png/logo.gif" alt="logo du site " width= "150" > </h1>
-                  <p>Sur plusieurs années :Taux d'évolution du nombre d'organismes ayant reçus des stagiaires PFE.</p>
-         <form> <a href="{% url 'ST2'%}">
-            <button class= "btn btn-outline-primary"type="button">suivant</button>
-            </a></form><br>
+       
         <form method="post">
             <canvas id="myChart" width="300" height="600"></canvas>
   
@@ -30,10 +33,10 @@
             const myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels:[{% for item in d %}{{item|date:"Y"}},{%endfor%}],//les x
+                    labels:[{% for item in d %}'{{item}}',{% endfor %}],//les x
                     datasets: [{
                         label: '# of Votes',
-                        data: [{% for item in s %}{{item.total}},{%endfor%}],
+                        data: [{% for item in s %}{{item.total}},{% endfor %}],//les y
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',

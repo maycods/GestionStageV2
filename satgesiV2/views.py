@@ -1,6 +1,7 @@
+from typing import OrderedDict
 from webbrowser import get
 from django.shortcuts import render ,redirect
-from .models import Encadreur, Stage, Stagiere ,Promoteur,OrganismeAcceuil,GroupeStagiaire,Type,Sinscrit
+from .models import Encadreur, SeDeroule, Stage, Stagiere ,Promoteur,OrganismeAcceuil,GroupeStagiaire,Type,Sinscrit
 from satgesiV2.formEtud import  StagieresForm
 from  satgesiV2.formEncadreur import EncadreurForm
 from  satgesiV2.formPromoteur import PromoteurForm
@@ -8,8 +9,8 @@ from satgesiV2.formOrganisme import OrganismeAcceuilForm
 from satgesiV2.formGroupeStagiaire import GroupeStagiaireFrom
 from  satgesiV2.formTypeS import TypeForm
 from django.db.models import Count
-
-
+from django.db.models import F, Q
+from django.db import connection
 # Create your views here.
 def pageone (request):
  return render(request,'Firstpage.html')
@@ -69,9 +70,6 @@ def pageeight (request):
     if request.method == "POST":
        form = GroupeStagiaireFrom(data=request.POST)
        if form.is_valid():
-           form.save()
-           return redirect("accept")
-       else:
            form.save()
            return redirect("accept")
     else:
@@ -276,11 +274,32 @@ def Gorgan (request):
     Organisme = OrganismeAcceuil.objects.all()
     return render(request,'Gorganime.html', {'or':Organisme})
 
-def stats(request):
-
-    # s= Type.objects.raw("SELECT count(*) as requette FROM satgesiV2_type GROUP BY satgesiV2_Type_Stage")
-    # s=Type.objects.values('Type_Stage').annotate(total=Count('id'))
+def stats(request): #3
     d=set(Type.objects.values_list('anneuniv',flat=True))
-    print(d)
+    #s=(SeDeroule.objects.values(  'TypeStage_id__anneuniv'  ).annotate(total=Count('id'))) 
+    s=Type.objects.raw('select stage_ptr_id,count(*)  as total from  satgesiV2_type,satgesiV2_sederoule,satgesiV2_Stage s where Type_Stage="PFE" and stage_ptr_id = TypeStage_id and stage_ptr_id=s.id group by anneuniv ')
+    return render(request,'stat.html',{'d':d,'s':s})
+
+def stats2(request): #2
+    if request.method == "POST":
+         q = request.POST['a']
+         d=set(OrganismeAcceuil.objects.values_list('nomOrganisme',flat=True).order_by( 'id'))
+         s=Type.objects.raw('select stage_ptr_id,SUM(NbreStagiare) as reque from  satgesiV2_type,satgesiV2_sederoule,satgesiV2_Stage s where stage_ptr_id = TypeStage_id  and stage_ptr_id=s.id and anneuniv = %s group by idfOrganisme_id',[q])
+         return render(request,'stat2.html',{'d':d,'s':s})
+    else:
+        return render(request,'stat2.html')
+
     
-    return render(request,'stat.html',{'d':d})
+   
+
+def stats3(request): # 1er
+    if request.method == "POST":
+         q = request.POST['a']
+         d=set(OrganismeAcceuil.objects.values_list('nomOrganisme',flat=True).order_by( 'id'))
+         s=Type.objects.raw('select stage_ptr_id,count(*)  as total from  satgesiV2_type,satgesiV2_sederoule,satgesiV2_Stage s where Type_Stage="PFE" and stage_ptr_id = TypeStage_id  and stage_ptr_id=s.id and anneuniv = %s group by idfOrganisme_id ',[q])
+         return render(request,'stat3.html',{'d':d,'s':s})
+    else:
+     return render(request,'stat3.html')
+
+# s=Type.objects.values('Type_Stage').annotate(total=Count('id')) 
+   # s= Type.objects.raw("SELECT count(*) as requette FROM satgesiV2_type GROUP BY satgesiV2_Type_Stage")
