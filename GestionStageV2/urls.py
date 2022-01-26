@@ -15,17 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from satgesiV2.views import mod, modTS, modpGS, modpO, pageone,modpr, recho, rechp, supP, supgs, supo,supt,rechgs,recht,modS,sups,rechs
+from satgesiV2.views import mod, modTS, modpGS, modpO,modpr, recho, rechp, supP, supgs, supo,supt,rechgs,recht,modS,sups,rechs
 from satgesiV2.views import pagetwo
 from satgesiV2.views import pagethree
 from satgesiV2.views import pagefour
 from satgesiV2.views import pagefive,rech ,stats2,stats3
 from satgesiV2.views import pageacc ,sup,pageseven,pageeight,pagenine,mod
 from satgesiV2.views import pagesix,boxstage, Gencadreur, boxstage2,Gorgan,GGstag,Gprom,Gtype,Gstage,Gstag,stats
+from accounts.views import login_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('', pageone),
+    #  path('', pageone),
+      path('', login_view),
       path('connected/', pagetwo),
       path('formul/',pagethree,name="formul"),
       path('Etudiant/',pagefour,name="create"),

@@ -16,29 +16,31 @@
       
     <div class="center">
         <h1>Connexion </h1>
-        <form method="post">
+        <form method="post">{%csrf_token %}
+            {% if error  %}
+            <p style='color:red'>{{error}}</p>
+             {% endif %} 
             <div class="txt_field">
-                <input type="text" required>
+                <input type="text"  name='username' required>
                 <span></span>
                 <label>Nom d'utilisateur</label>
-                
             </div>
             <div class="txt_field">
-                <input type="password" required>
+                <input type="password" name='password' required>
                 <span></span>
                 <label>Mot de passe </label>
             
             </div>
             <div class="pass">Mot de passe oublié ?</div>
             <div class="login">
-                <a href="#nav"><input type ="submit" value="Se connecter" ></a>    
+            <a href="#nav"><input type ="submit" value="Se connecter" ></a>    
             </div>
             <div class="space">
                 
             </div>
           
             
-            
+             
         </form>
   
     </div>

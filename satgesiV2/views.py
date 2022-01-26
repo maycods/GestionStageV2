@@ -12,8 +12,8 @@ from django.db.models import Count
 from django.db.models import F, Q
 from django.db import connection
 # Create your views here.
-def pageone (request):
- return render(request,'Firstpage.html')
+# def pageone (request):
+#  return render(request,'Firstpage.html')
 
 def pagetwo (request):
  return render(request,'Secondpage.html')
