@@ -8,8 +8,8 @@ class PromoteurForm(ModelForm):
         fields = ('NomPromoteur','PrenomPromoteur','telephone','email','FonctionOccupée','domainIntérêt','idfOrganisme','idfGroupe')
         
         widgets={
-            'NomPromoteur':forms.TextInput(attrs={'class':'form-control','placeholder':'Nomncadreur'}),
-            'PrenomPromoteur':forms.TextInput(attrs={'class':'form-control','placeholder':'PrenomEncadreur'}),
+            'NomPromoteur':forms.TextInput(attrs={'class':'form-control','placeholder':'NomPromoteur'}),
+            'PrenomPromoteur':forms.TextInput(attrs={'class':'form-control','placeholder':'PrenomPromoteur'}),
             'telephone': forms.NumberInput(attrs={'class':'form-control','placeholder':'Telephone'}),
             'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'email@example.com'}),
             'FonctionOccupée':forms.TextInput(attrs={'class':'form-control','placeholder':'Fonction'}),

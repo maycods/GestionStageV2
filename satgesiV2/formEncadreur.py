@@ -13,7 +13,7 @@ class EncadreurForm(ModelForm):
             'Telephone': forms.NumberInput(attrs={'class':'form-control','placeholder':'Telephone'}),
             'Mail':forms.EmailInput(attrs={'class':'form-control','placeholder':'Mail'}),
             'grade':forms.TextInput(attrs={'class':'form-control','placeholder':'grade'}),
-            'domaineInteret':forms.TextInput(attrs={'class':'form-control','placeholder':'grade'}),
+            'domaineInteret':forms.TextInput(attrs={'class':'form-control','placeholder':'domaine d  interet'}),
           }
         labels={
               'Nomncadreur' :'Nom',

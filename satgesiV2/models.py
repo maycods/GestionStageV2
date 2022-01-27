@@ -30,7 +30,6 @@ class OrganismeAcceuil(models.Model):
 
 class Type(Stage):
     Type_Stage = models.CharField(max_length=50)
-    # code_Stage = models.ForeignKey("Stage",on_delete=models.CASCADE,null=True)
     DateDebut = models.DateField()
     DateFin = models.DateField()
     NbreStagiare = models.PositiveIntegerField()

@@ -68,7 +68,7 @@ def pageseven(request):
 
 def pageeight (request):
     if request.method == "POST":
-       form = GroupeStagiaireFrom(data=request.POST)
+       form = GroupeStagiaireFrom(request.POST,request.FILES)
        if form.is_valid():
            form.save()
            return redirect("accept")
@@ -78,7 +78,7 @@ def pageeight (request):
 
 def pagenine(request):
     if request.method == "POST":
-       form = TypeForm(data=request.POST)
+       form = TypeForm(request.POST,request.FILES)
        if form.is_valid():
            form.save()
            return redirect("accept")
@@ -189,7 +189,7 @@ def supgs (request, pk):
      gs.delete()
      return redirect("GGSR")
 
-    return render(request,'supt.html' ,{'item':gs}) 
+    return render(request,'supg.html' ,{'item':gs}) 
 def rech (request):
  if request.method =="POST":
      q = request.POST['q']
