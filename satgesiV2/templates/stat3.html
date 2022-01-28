@@ -32,7 +32,7 @@
             const myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels:[{% for item in d %}'{{item}}',{% endfor %}],//les x
+                    labels:[{% for item in d %}'{{item.nomOrganisme}}',{% endfor %}],//les x
                     datasets: [{
                         label: '# of Votes',
                         data: [{% for item in s %}{{item.total}},{% endfor %}],//les y

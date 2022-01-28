@@ -289,13 +289,10 @@ def stats2(request): #2
     else:
         return render(request,'stat2.html')
 
-    
-   
-
 def stats3(request): # 1er
     if request.method == "POST":
          q = request.POST['a']
-         d=set(OrganismeAcceuil.objects.values_list('nomOrganisme',flat=True).order_by( 'id'))
+         d=Type.objects.raw('select stage_ptr_id,nomOrganisme  from  satgesiV2_type,satgesiV2_sederoule,satgesiV2_Stage s,satgesiV2_OrganismeAcceuil o  where Type_Stage="PFE" and stage_ptr_id = TypeStage_id  and stage_ptr_id=s.id and o.id =idfOrganisme_id  and anneuniv = %s group by idfOrganisme_id ',[q])
          s=Type.objects.raw('select stage_ptr_id,count(*)  as total from  satgesiV2_type,satgesiV2_sederoule,satgesiV2_Stage s where Type_Stage="PFE" and stage_ptr_id = TypeStage_id  and stage_ptr_id=s.id and anneuniv = %s group by idfOrganisme_id ',[q])
          return render(request,'stat3.html',{'d':d,'s':s})
     else:
