@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from satgesiV2.views import mod, modTS, modpGS, modpO,modpr, recho, rechp, supP, supgs, supo,supt,rechgs,recht,modS,sups,rechs
+from satgesiV2.views import mod, modTS, modpGS, modpO,modpr, recho, rechp, stats4, supP, supgs, supo,supt,rechgs,recht,modS,sups,rechs
 from satgesiV2.views import pagetwo
 from satgesiV2.views import pagethree
-from satgesiV2.views import pagefour
+from satgesiV2.views import pagefour,stats4
 from satgesiV2.views import pagefive,rech ,stats2,stats3
 from satgesiV2.views import pageacc ,sup,pageseven,pageeight,pagenine,mod
 from satgesiV2.views import pagesix,boxstage, Gencadreur, boxstage2,Gorgan,GGstag,Gprom,Gtype,Gstage,Gstag,stats
@@ -69,5 +69,6 @@ urlpatterns = [
         path('ST/',stats,name="ST"),
         path('ST2/',stats2,name="ST2"),
         path('ST3/',stats3,name="ST3"),
+        path('ST4/',stats4,name="ST4"),
       ]
 

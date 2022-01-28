@@ -275,7 +275,7 @@ def Gorgan (request):
     return render(request,'Gorganime.html', {'or':Organisme})
 
 def stats(request): #3
-    d=set(Type.objects.values_list('anneuniv',flat=True))
+    d=set(Type.objects.values_list('anneuniv',flat=True).order_by( 'id'))
     #s=(SeDeroule.objects.values(  'TypeStage_id__anneuniv'  ).annotate(total=Count('id'))) 
     s=Type.objects.raw('select stage_ptr_id,count(*)  as total from  satgesiV2_type,satgesiV2_sederoule,satgesiV2_Stage s where Type_Stage="PFE" and stage_ptr_id = TypeStage_id and stage_ptr_id=s.id group by anneuniv ')
     return render(request,'stat.html',{'d':d,'s':s})
@@ -283,7 +283,7 @@ def stats(request): #3
 def stats2(request): #2
     if request.method == "POST":
          q = request.POST['a']
-         d=set(OrganismeAcceuil.objects.values_list('nomOrganisme',flat=True).order_by( 'id'))
+         d=Type.objects.raw('select stage_ptr_id,nomOrganisme from  satgesiV2_type,satgesiV2_sederoule d,satgesiV2_Stage s,satgesiV2_OrganismeAcceuil o  where stage_ptr_id = TypeStage_id  and stage_ptr_id=s.id and anneuniv = %s  and o.id =idfOrganisme_id group by idfOrganisme_id',[q])
          s=Type.objects.raw('select stage_ptr_id,SUM(NbreStagiare) as reque from  satgesiV2_type,satgesiV2_sederoule,satgesiV2_Stage s where stage_ptr_id = TypeStage_id  and stage_ptr_id=s.id and anneuniv = %s group by idfOrganisme_id',[q])
          return render(request,'stat2.html',{'d':d,'s':s})
     else:
@@ -303,3 +303,7 @@ def stats3(request): # 1er
 
 # s=Type.objects.values('Type_Stage').annotate(total=Count('id')) 
    # s= Type.objects.raw("SELECT count(*) as requette FROM satgesiV2_type GROUP BY satgesiV2_Type_Stage")
+def stats4(request): #4
+         d=set(Type.objects.values_list('Type_Stage',flat=True).order_by( 'id'))
+         s=Type.objects.values('Type_Stage').annotate(total=Count('id')) 
+         return render(request,'stat4.html',{'d':d,'s':s})
