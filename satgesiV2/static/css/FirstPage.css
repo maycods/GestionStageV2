@@ -16,7 +16,7 @@ body{
   width: 400px;
   background: white;
   border-radius: 10px; /*propriete des bordures*/ 
-  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  box-shadow: 10px 10px 15px rgb(26,73,139);
 }
 .center h1{
   text-align: center;

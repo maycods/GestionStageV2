@@ -1,0 +1,56 @@
+body{
+    margin: 0; 
+    padding: 0; 
+    background: #ecf0f1;
+    height: 100vh;
+    overflow: hidden; /*le texte ne depasse pas la limite du bloc si c'est le cas on le coupe*/
+  }
+  ul{
+    position: absolute;
+    top:16%;
+    left:65%;
+    padding: 0;
+    display: flex;
+  }
+  .center{
+      
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 105vh;
+    background: white;
+    border-radius: 10px; /*propriete des bordures*/ 
+    box-shadow: 10px 10px 15px rgb(26,73,139); /*ici kanet noir */
+  }
+  
+  .center h3{
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid silver; /*bordure du coté bas*/
+  }
+  .center form{
+    padding: 0 150px;
+    box-sizing: border-box;
+  }
+  .space
+  {
+     margin: 30px 0;
+  }
+   button
+  { 
+      position: absolute;
+      font-size: 12px;
+      color:#e9f4fb;
+      width: 90px;
+      padding: 9px 0;
+      text-align:center;
+      margin:20px 10px;
+      border-radius: 25px;
+      font-weight: bold;
+      border: 2px solid  rgb(26,73,139);
+      background-color:rgb(26,73,139); 
+  }
+   
+    

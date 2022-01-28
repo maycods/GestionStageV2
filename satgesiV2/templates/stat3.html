@@ -6,24 +6,21 @@
         <meta charset="UTF-8">
         <title>ESI</title>
         
-        <link rel="stylesheet" href="/static/css/Stat.Css">
+        <link rel="stylesheet" href="/static/css/Stat2.Css">
         <link rel="icon" href="/static/png/icon3.png" >
     </head>
     <body>
-        
-        <p>Chaque année :</p>
-    <p> Répartition des PFE / entreprise.</p>
-        
+    <div class="center"> 
       <ul>
         <form action="{% url 'ST3' %}" method="POST"  >
             {% csrf_token %}
            <input type="date" name="a" placeholder="Recherche année...">
-           <button class = "btn btn-outline-primary " type="submit">recherche</button>
+           <button class = "button " type="submit">recherche</button>
          </form>
-      <!--<li class ="next"><span></span></li> -->
       </ul>   
-    <center>
-          <h1><img src="/static/png/logo.gif" alt="logo du site " width= "150">Statistiques<img src="/static/png/logo.gif" alt="logo du site " width= "150" > </h1>
+      <h3><img src="/static/png/icon3.png" alt="logo du site " width= "40" >Statistiques</h3>
+      <p>Chaque année :</p>
+      <p> Répartition des PFE / entreprise.</p>
        
         <form method="post">
             <canvas id="myChart" width="250" height="500"></canvas>
@@ -63,7 +60,7 @@
             });
             </script>
         </form>
-    </center>
+    </div>
    
   </body>
 </html>
