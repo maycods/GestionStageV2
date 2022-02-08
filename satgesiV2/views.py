@@ -298,9 +298,11 @@ def stats3(request): # 1er
     else:
      return render(request,'stat3.html')
 
-# s=Type.objects.values('Type_Stage').annotate(total=Count('id')) 
-   # s= Type.objects.raw("SELECT count(*) as requette FROM satgesiV2_type GROUP BY satgesiV2_Type_Stage")
 def stats4(request): #4
          d=set(Type.objects.values_list('Type_Stage',flat=True).order_by( 'id'))
          s=Type.objects.values('Type_Stage').annotate(total=Count('id')) 
          return render(request,'stat4.html',{'d':d,'s':s})
+
+def pagederoule (request):
+ sdr = SeDeroule.objects.all()
+ return render(request,'sederoule.html',{'s' :sdr})

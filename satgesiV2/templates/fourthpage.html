@@ -16,11 +16,11 @@
     <div class="center">
          <h1>  <img src="/static/png/icon3.png" alt="logo du site " width= "80" > Formulaire d'inscription</h1> 
          <div class="space">
-        </div><br><br>
+        </div><br>
         <form method="POST">
            {% csrf_token %}
           {{formEtud}}
-           <br>
+           <br><br>
           <button type="submit" class="btn btn-primary">Envoyer</button>
           
       </form>
