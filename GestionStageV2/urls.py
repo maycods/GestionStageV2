@@ -21,7 +21,7 @@ from satgesiV2.views import pagethree,pagederoule
 from satgesiV2.views import pagefour,stats4
 from satgesiV2.views import pagefive,rech ,stats2,stats3
 from satgesiV2.views import pageacc ,sup,pageseven,pageeight,pagenine,mod
-from satgesiV2.views import pagesix,boxstage, Gencadreur, boxstage2,Gorgan,GGstag,Gprom,Gtype,Gstage,Gstag,stats
+from satgesiV2.views import pagesix,boxstage, Gencadreur, boxstage2,Gorgan,GGstag,Gprom,Gtype,Gstage,Gstag,stats,pageSedroul,pageInscrit
 from accounts.views import login_view
 
 urlpatterns = [
@@ -53,6 +53,8 @@ urlpatterns = [
        path('Promoteur/',pagefive,name="createP"),
        path('Encadreur/',pagesix,name="createE"),
        path('Organisme/',pageseven,name="createO"),
+       path('SeDeroule/',pageSedroul,name="Sederoul"),
+       path('Sinscrit/',pageInscrit,name="Sinscrit"),
        
        path('GPStagieres/',pageeight,name="createG"),
        path('TypeStage/',pagenine,name="CreateS"),

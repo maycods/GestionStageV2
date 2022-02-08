@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <title>ESI</title>
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/Nine.css' %}">
+        <link rel="icon" href="/static/png/icon3.png" >
+    </head>
+<body>
+
+
+    <div class="center">
+         <h1><img src="/static/png/icon3.png" alt="logo du site " width= "80" > 
+            Formulaire d'inscription</h1>
+         <br>
+         <div class="space">
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+           {% csrf_token %}
+          
+        <div class="form-group row">
+        {{formSedroule}}
+    </div>
+         <br>
+          <button type="submit" class="btn btn-primary">Envoyer</button>
+          
+      </form>
+        {% comment %} <div class="centrText"> {% endcomment %}
+         
+</div>
+</body>
+</html>

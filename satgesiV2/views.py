@@ -8,6 +8,8 @@ from  satgesiV2.formPromoteur import PromoteurForm
 from satgesiV2.formOrganisme import OrganismeAcceuilForm
 from satgesiV2.formGroupeStagiaire import GroupeStagiaireFrom
 from  satgesiV2.formTypeS import TypeForm
+from  satgesiV2.formSedroule import SedrouleForm
+from  satgesiV2.formInscrit import SinscritForm
 from django.db.models import Count
 from django.db.models import F, Q
 from django.db import connection
@@ -64,6 +66,26 @@ def pageseven(request):
     else:
         formula = OrganismeAcceuilForm()
         return render(request,'SevenPage.html',{"formOrganisme":formula})
+
+def pageSedroul(request):
+    if request.method == "POST":
+       form =  SedrouleForm(data=request.POST)
+       if form.is_valid():
+           form.save()
+           return redirect("accept")
+    else:
+        formula = SedrouleForm()
+        return render(request,'SeDroul.html',{"formSedroule":formula})
+
+def pageInscrit(request):
+    if request.method == "POST":
+       form =  SinscritForm(data=request.POST)
+       if form.is_valid():
+           form.save()
+           return redirect("accept")
+    else:
+        formula = SinscritForm()
+        return render(request,'inscrit.html',{"formInscrit":formula})
 
 
 def pageeight (request):
@@ -282,7 +304,7 @@ def stats(request): #3
 
 def stats2(request): #2
     if request.method == "POST":
-         q = request.POST['a']
+         q = request.POST['a'] 
          d=Type.objects.raw('select stage_ptr_id,nomOrganisme from  satgesiV2_type,satgesiV2_sederoule d,satgesiV2_Stage s,satgesiV2_OrganismeAcceuil o  where stage_ptr_id = TypeStage_id  and stage_ptr_id=s.id and anneuniv = %s  and o.id =idfOrganisme_id group by idfOrganisme_id',[q])
          s=Type.objects.raw('select stage_ptr_id,SUM(NbreStagiare) as reque from  satgesiV2_type,satgesiV2_sederoule,satgesiV2_Stage s where stage_ptr_id = TypeStage_id  and stage_ptr_id=s.id and anneuniv = %s group by idfOrganisme_id',[q])
          return render(request,'stat2.html',{'d':d,'s':s})
