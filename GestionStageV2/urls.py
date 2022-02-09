@@ -28,7 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #  path('', pageone),
       path('', login_view),
-      path('connected/', pagetwo),
+      path('connected/', pagetwo,name="cnxx"),
       path('formul/',pagethree,name="formul"),
       path('Etudiant/',pagefour,name="create"),
       path('accept/',pageacc,name="accept"),

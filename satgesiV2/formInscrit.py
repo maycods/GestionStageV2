@@ -11,3 +11,8 @@ class SinscritForm(ModelForm):
             'Type-Stage' : forms.TextInput(attrs={'class':'form-control'}),
             'idf-Groupe' : forms.TextInput(attrs={'class':'form-control'}),
          }
+
+        labels={
+            'TypeStage': 'Idf stage',
+
+         }

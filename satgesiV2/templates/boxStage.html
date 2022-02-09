@@ -10,22 +10,23 @@
       </head>
 </head>
 <body>
-    <center><div class=logo>  <img src="/static/png/logo.gif" alt="logo du site " width= "350" > <br> <br> </div></center>
-
-    <div class="center">
     
+    <center><div class=logo>  <img src="/static/png/logo.gif" alt="logo du site " width= "350" > <br> <br> </div></center>
+ 
+    <div class="center">
+        
         <h1> Stages </h1>
         <form method="post">
             
             
             <a href="{% url 'GT'%}">
-                <button type="button">Gerer les Stages</button>
+                <button type="button" style="margin : 10px;margin-top: 15px;">Gerer les Stages</button>
             </a>  
             <a href="{% url 'GS'%}">
-                <button type="button">Inscriptions</button>
+                <button type="button"style="margin : 10px;">Inscriptions</button>
             </a>  
             <a href="{% url 'DR'%}">
-                <button type="button">SeDeroule</button>
+                <button type="button"style="margin : 10px;">organisme-stage</button>
             </a> 
             
             <div class="space">
